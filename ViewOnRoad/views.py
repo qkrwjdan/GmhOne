@@ -12,3 +12,7 @@ def ViewOnRoad_signup(request):
     return render(request,'ViewOnRoad/ViewOnRoad_signup.html',{
         'form':form,
     })
+
+
+def ViewOnRoad_notice(request):
+    return render(request,'ViewOnRoad/ViewOnRoad_notice.html',{})
