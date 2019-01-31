@@ -9,3 +9,8 @@ class SignUp(models.Model):
 
     def __str__(self):
         return self.name
+
+class UploadFile(models.Model):
+    title = models.CharField(max_length=50)
+    file = models.FileField()
+    
