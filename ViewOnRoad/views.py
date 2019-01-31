@@ -27,7 +27,7 @@ def ViewOnRoad_fileUpload(request):
 
 def ViewOnRoad_longWay(request):
     qs =  UploadFile.objects.all()
-    qs =  UploadFile.order_by('-title')
+    qs =  qs.order_by('-title')
     
     return render(request,'ViewOnRoad/ViewOnRoad_longWay.html',{
         'filelist': qs,
