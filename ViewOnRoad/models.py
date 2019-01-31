@@ -13,4 +13,5 @@ class SignUp(models.Model):
 class UploadFile(models.Model):
     title = models.CharField(max_length=50)
     file = models.FileField()
+    created_date = models.DateTimeField(default = timezone.now)
     
