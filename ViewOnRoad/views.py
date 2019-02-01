@@ -20,7 +20,13 @@ def ViewOnRoad_notice(request):
 
 
 def ViewOnRoad_fileUpload(request):
-    form = UploadFileForm() 
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST,request.FILES)
+        if form.is_valid:
+            form.save()
+            return redirect("ViewOnRoad_longWay")
+    else:
+        form = UploadFileForm() 
     return render(request,'ViewOnRoad/ViewOnRoad_fileUpload.html',{
         'form':form
     })
@@ -45,21 +51,3 @@ def ViewOnRoad_signin(request):
     return render(request,'ViewOnRoad/ViewOnRoad_signin.html',{
         'form' : form,
     })
-
-    # def post_new(request):
-    # #request.POST , request.FILES
-
-    # if request.method == 'POST':
-    #     form = PostForm(request.POST,request.FILES)
-    #     if form.is_valid():
-    #         post = form.save(commit=False)
-    #         post.author = request.user
-    #         # post.published_date = timezone.now()
-    #         post.save()
-    #         return redirect('post_detail',post.pk)
-    # else:
-    #     form = PostForm()
-
-    # return render(request,'blog/post_edit.html',{
-    #     'form' : form,
-    # })
