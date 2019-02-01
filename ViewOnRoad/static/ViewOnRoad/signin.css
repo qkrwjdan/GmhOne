@@ -1,0 +1,33 @@
+body{
+    text-align: center;
+  }
+  p #logoimg{
+    margin: 4%;
+  }
+  #logo{
+    width: 20%;
+    height: auto;
+  }
+  form{
+    margin: 3%
+  }
+  .login{
+    width: 300px;
+    height: 30px;
+    margin: 2%;
+  }
+  #id_name, #id_password{
+    width: 300px;
+    height: 30px;
+    margin: 2%;
+  }
+  #checkLogin{
+    font-size: 10px;
+  }
+  #grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .rightline{
+    border-right: 1px solid gray;
+  }

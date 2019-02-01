@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/ViewOnRoad/signin.css">
+  </head>
+
+
+  <body>
+    <p id="logoimg">
+      <img id="logo" src="/static/ViewOnRoad/IMG_1618.jpg" alt="logo">
+    </p>
+
+    <form method="POST">
+      {{ form.as_p }}{% csrf_token %}
+      <input class="login" type="submit" value="로그인" style="background-color:skyblue"><br>
+      <input type="checkbox" value=""><span id="checkLogin">로그인상태유지</span>
+    </form>
+    <hr>
+    <div id="grid">
+      <span class="rightline">아이디찾기</span> <!—아이디찾기.html로 이동—>
+      <span class="rightline">비밀번호찾기</span> <!—비밀번호찾기.html로 이동—>
+      <span>회원가입</span> <!—회원가입.html로 이동—>
+    </div>
+
+  </body>
+</html>
