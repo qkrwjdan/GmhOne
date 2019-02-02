@@ -1,67 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Sans+KR" rel="stylesheet">
-  <link rel="stylesheet" href="/static/ViewOnRoad/index.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <p>
-    <img src="/static/ViewOnRoad/GMH_logo.png" alt=""  width = 60px height = 50px>
-  </p>
-  <span>
-    <a href="{% url 'ViewOnRoad_signin' %}">로그인</a> |
-    <a href="{% url 'ViewOnRoad_signup' %}">회원가입</a> |
-    <a href="customInfo.html">회원정보</a>
-  </span>
-  <br>
-  <div class="menubar">
-   <ul>
-      <li><a href="{% url 'ViewOnRoad_notice' %}">알림</a></li>
-      <li><a href="#">길 위의 이야기</a>
-         <ul>
-           <li><a href="#">홈</a></li>
-           <li><a href="#">가고 싶은 길</a></li>
-           <li><a href="#">가본 길</a></li>
-           <li><a href="#">최근 올라온 길</a></li>
-           <li><a href="#">주제가 있는 길</a></li>
-         </ul>
-      </li>
+{% extends 'ViewOnRoad/base.html' %}
 
-      <li><a href="{% url 'ViewOnRoad_longWay' %}">먼 길 가기</a>
-        <ul>
-          <li><a href="#">홈</a></li>
-          <li><a href="#">가고 싶은 길</a></li>
-          <li><a href="#">가본 길</a></li>
-          <li><a href="#">최근 올라온 길</a></li>
-          <li><a href="#">대륙별 인기있는 길</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">거리 탐방</a>
-        <ul>
-          <li><a href="#">홈</a></li>
-          <li><a href="#">가고 싶은 길</a></li>
-          <li><a href="#">가본 길</a></li>
-          <li><a href="#">최근 올라온 길</a></li>
-          <li><a href="#">대륙별 인기있는 길</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">동반자</a>
-        <ul>
-          <li><a href="#">회원가입</a></li>
-          <li><a href="#">문의 및 영상등록</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">회사 소개</a></li>
-   </ul>
-  </div>
-</head>
-<body>
+{% block content %}
   <div class = "thumbnail">
     <li>
       <img src="/static/ViewOnRoad/home_1.jpg" alt="">
@@ -70,6 +9,4 @@
 
     </li>
   </div>
-  <a href="{% url 'ViewOnRoad_fileUpload' %}">파일 업로드하기</a><br>
-</body>
-</html>
+{% endblock%}

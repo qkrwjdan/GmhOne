@@ -1,6 +1,9 @@
+{% extends 'ViewOnRoad/base.html' %}
 
-<h1>New SignUp</h1>
-<form method="POST"> {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-primary">Save</button>
-</form>
+{% block content %}
+    <h1>New SignUp</h1>
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-primary">Save</button>
+    </form>
+{% endblock%}

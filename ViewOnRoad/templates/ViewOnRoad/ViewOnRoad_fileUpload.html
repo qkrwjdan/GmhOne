@@ -1,6 +1,10 @@
-<h1>file upload form</h1>
-<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save btn btn-primary">Save</button>
-</form>
-   
+
+{% extends 'ViewOnRoad/base.html' %}
+
+{% block content %}
+    <h1>file upload form</h1>
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-primary">Save</button>
+    </form>
+{% endblock%}
