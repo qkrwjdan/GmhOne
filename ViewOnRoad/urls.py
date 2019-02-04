@@ -9,6 +9,6 @@ urlpatterns = [
    url(r'^notice/$',views.ViewOnRoad_notice,name='ViewOnRoad_notice'),
    url(r'^fileuploadtest/$',views.ViewOnRoad_fileUpload,name='ViewOnRoad_fileUpload'),
    url(r'^longway/$',views.ViewOnRoad_longWay,name='ViewOnRoad_longWay'),
-   url(r'^signin/$',views.ViewOnRoad_signin,name="ViewOnRoad_signin"),
+   url(r'^signin/$',views.ViewOnRoad_signin,name='ViewOnRoad_signin'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="/static/ViewOnRoad/signin.css">
-  </head>
+{% extends 'ViewOnRoad/base.html' %}
 
+{% block content %}
+  {% if form.errors %}
+      <p>이름과 비밀번호가 일치하지 않습니다. 다시 시도해주세요.</p>
+  {% endif %}
 
-  <body>
-    <p id="logoimg">
-      <img id="logo" src="/static/ViewOnRoad/IMG_1618.jpg" alt="logo">
-    </p>
+  <form method="POST" action="{% url 'ViewOnRoad_signin' %}">
+    {{ form.as_p }}{% csrf_token %}
+    
+    <input class="login" type="submit" value="로그인"><br>
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input type="checkbox" value=""><span id="checkLogin">로그인상태유지</span>
+  </form>
 
     <form method="POST">
       {{ form.as_p }}{% csrf_token %}
