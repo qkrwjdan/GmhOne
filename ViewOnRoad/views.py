@@ -38,16 +38,3 @@ def ViewOnRoad_longWay(request):
     return render(request,'ViewOnRoad/ViewOnRoad_longWay.html',{
         'filelist': qs,
     })
-
-def ViewOnRoad_signin(request):
-    
-    if request.method == 'POST':
-        form = SignUpForm(request.POST,request.FILES)
-        if form.is_valid():
-            return redirect('ViewOnRoad_index')
-    else:
-        form = SignUpForm()
-    
-    return render(request,'ViewOnRoad/ViewOnRoad_signin.html',{
-        'form' : form,
-    })

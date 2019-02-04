@@ -17,11 +17,11 @@
   </p>
   <span>
     {% if user.is_authenticated %}
-      <a href="">로그아웃</a> |
+      <a href="{% url 'logout' %}">로그아웃</a> |
       <a href="">글쓰기</a> |
       <a href="">회원정보</a>
     {% else %}
-      <a href="{% url 'ViewOnRoad_signin' %}">로그인</a> |
+      <a href="{% url 'login' %}">로그인</a> |
       <a href="{% url 'ViewOnRoad_signup' %}">회원가입</a> |
     {% endif %}
   </span>
