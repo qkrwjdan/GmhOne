@@ -12,7 +12,7 @@ class SignUp(models.Model):
 
 class UploadFile(models.Model):
     title = models.CharField(max_length=50)
-    file = models.FileField()
+    file = models.FileField(upload_to='uploads/')
     created_date = models.DateTimeField(default = timezone.now)
     
     def __str__(self):
