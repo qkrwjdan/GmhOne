@@ -1,64 +1,71 @@
-span{
-    float:right;
-    font-size : 13px;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-span a{
-    text-decoration : none;
-    color : black
-}
-p{
-    margin-left : 10px;
-    font-family: 'Noto Sans KR', sans-serif;    }
-.menubar{
-    background-color:#29088A;
-    padding-top:1px;
-    font-family: 'Do Hyeon', sans-serif;
-    font-size : 18px;
-    border-radius: 7px;
-}
-.menubar li{
-    display : inline-block;
+    span{
+      float:right;
+      font-size : 13px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    span a{
+      text-decoration : none;
+      color : black
+    }
+    p{
+      margin-left : 10px;
+      font-family: 'Noto Sans KR', sans-serif;
+      }
+      .menubar{
+        background-color:#0B0B3B;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size : 18px;
+        border-radius: 7px;
+        padding-top:1px;
+        padding-bottom:1px;
+        margin-bottom:19px;
+      }
+      .menubar li{
+        display : inline-block;
+        z-index:1;
 
-}
-.menubar li ul {
-    background: #29088A;
-    display:none;
-    height:auto;
-    padding:0px;
-    margin:-5px;
-    border:0px;
-    position:absolute;
-    width:200px;
-    z-index:1;
-    border-radius: 7px;
-}
-.menubar li:hover ul {
-    display:block;
-}
-.menubar ul li ul li{
-    display:block;
-    padding-top:10px;
-    padding-bottom: 10px;
-}
-a{
-    text-decoration: none;
-    color : white;
-    padding-left: 20px;
-}
-.thumbnail{
-    display:block;
-    text-align: center;
-}
-.thumbnail li{
-    display:inline;
-    margin:auto;
-}
-.thumbnail li img{
-    margin-left: -6px;
-    margin-top : -19px;
-    opacity:0.7;
-    background-size: contain;
-    width:33%;
-    height:33%;
-}
+      }
+      .menubar li ul {
+          background: #0B0B3B;
+          display:none;
+          height:auto;
+          padding:0px;
+          margin:-5px;
+          border:0px;
+          position:absolute;
+          width:200px;
+          border-radius: 7px;
+      }
+      .menubar li:hover ul {
+          display:block;
+      }
+      .menubar ul li ul li{
+        display:block;
+        padding-top:10px;
+        padding-bottom: 10px;
+      }
+      a{
+        text-decoration: none;
+        color : white;
+        padding-left: 20px;
+      }
+      .thumbnail{
+        display:block;
+        text-align: center;
+      }
+      .thumbnail li{
+        display:inline;
+        margin:auto;
+      }
+      .thumbnail li img{
+        margin-left: -6px;
+        margin-top : -19px;
+        background-size: contain;
+        width:33%;
+        height:33%;
+      }
+      .thumbnail li img:hover{
+        opacity:0.7;
+      }
+      button{
+      }
