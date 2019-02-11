@@ -5,15 +5,18 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'ViewOnRoad/index.css' %}">
-  {% block stylelink%}
-  {% endblock%}
+
+  {% block stylelink %}
+
+  {% endblock %}
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ViewOnRoad</title>
 </head>
 <body>
-<p>
+  <p>
     <a href = "{% url 'ViewOnRoad_index' %}"><img src="{% static 'ViewOnRoad/GMH_logo.png' %}" alt=""  width = 60px height = 50px></a>
   </p>
   <span>
@@ -62,12 +65,12 @@
 
       <li><a href="#">동반자</a>
         <ul>
-          <li><a href="#">회원가입</a></li>
+          <li><a href="{% url 'ViewOnRoad_signup' %}">회원가입</a></li>
           <li><a href="#">문의 및 영상등록</a></li>
         </ul>
       </li>
 
-      <li><a href="{% url 'ViewOnRoad_fileUpload' %}">회사 소개</a></li>
+      <li><a href="">회사 소개</a></li>
    </ul>
   </div>
   {% block content %}
