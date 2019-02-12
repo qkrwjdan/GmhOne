@@ -10,7 +10,7 @@
         <h2><a style = "color : black;" href="파일 디테일 페이지">{{ file.title }}</a></h2>
         <br>
         <h3>{{ file.file.name }}</h3>
-        <video src = 'D:\Web\chapter4_CSS\1.png' alt="이미지 불러오기 실패">
+        <img src = "{{ file.file.url }}" alt="이미지 불러오기 실패">
     </div>
    {% endfor %}
     
