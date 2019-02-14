@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
    url(r'^$',views.ViewOnRoad_index,name='ViewOnRoad_index'),
@@ -11,4 +10,5 @@ urlpatterns = [
    url(r'^longway/$',views.ViewOnRoad_longWay,name='ViewOnRoad_longWay'),
    url(r'^storyonroad/$',views.ViewOnRoad_storyonroad,name="ViewOnRoad_storyonroad"),
    
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
