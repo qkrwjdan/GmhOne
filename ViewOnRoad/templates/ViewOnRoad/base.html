@@ -10,6 +10,20 @@
 
   {% endblock %}
 
+  <script>
+		function openMenubar_L_1() {
+			document.getElementById('menubar_L_1').style.width = '250px';
+		}
+    function openMenubar_L_2(){
+      document.getElementById('menubar_L_2').style.width = '250px';
+    }
+		function closeMenubar_L_1() {
+			document.getElementById('menubar_L_1').style.width = '0';
+		}
+    function closeMenubar_L_2() {
+			document.getElementById('menubar_L_2').style.width = '0';
+		}
+	</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -39,7 +53,7 @@
            <li><a href="#">가고 싶은 길</a></li>
            <li><a href="#">가본 길</a></li>
            <li><a href="#">최근 올라온 길</a></li>
-           <li><a href="#">주제가 있는 길</a></li>
+           <li><a href="#" onmouseover = 'openMenubar_L_1()'>주제가 있는 길</a></li>
          </ul>
       </li>
 
@@ -49,7 +63,7 @@
           <li><a href="#">가고 싶은 길</a></li>
           <li><a href="#">가본 길</a></li>
           <li><a href="#">최근 올라온 길</a></li>
-          <li><a href="#">대륙별 인기있는 길</a></li>
+          <li><a href="#" onmouseover = 'openMenubar_L_2()' >대륙별 인기있는 길</a></li>
         </ul>
       </li>
 
@@ -59,7 +73,7 @@
           <li><a href="#">가고 싶은 길</a></li>
           <li><a href="#">가본 길</a></li>
           <li><a href="#">최근 올라온 길</a></li>
-          <li><a href="#">대륙별 인기있는 길</a></li>
+          <li><a href="#" onmouseover = 'openMenubar_L_2()' >대륙별 인기있는 길</a></li>
         </ul>
       </li>
 
@@ -73,7 +87,34 @@
       <li><a href="">회사 소개</a></li>
    </ul>
   </div>
+
   {% block content %}
   {% endblock %}
+
+<div id="menubar_L_1" class="menubar_L">
+		<a href="#" class="closeMenubar_L" onclick='closeMenubar_L_1()'>x</a>
+		<a href="#">나의 길 이야기</a>
+		<a href="#">맛집으로 가는 길</a>
+		<a href="#">역사 속으로 가는 길</a>
+		<a href="#">축제 가는 길</a>
+		<a href="#">고행의 길</a>
+		<a href="#">탐험의 길</a>
+		<a href="#">휴식 여행의 길</a>
+		<a href="#">박물관 가는 길</a>
+	</div>
+
+  <div id="menubar_L_2" class="menubar_L">
+    <a href="#" class="closeMenubar_L" onclick='closeMenubar_L_2()'>x</a>
+    <a href="#">아시아</a>
+    <a href="#">중국</a>
+    <a href="#">태국</a>
+    <a href="#">중동</a>
+    <a href="#">유럽</a>
+    <a href="#">아프리카</a>
+    <a href="#">오세아니아</a>
+    <a href="#">북아메리카</a>
+    <a href="#">남아메리카</a>
+  </div>
+
 </body>
 </html>
