@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .forms import SignUpForm,UploadFileForm
 from .models import  UploadFile
 from django.contrib.auth.decorators import login_required
@@ -42,3 +42,10 @@ def ViewOnRoad_longWay(request):
 def ViewOnRoad_storyonroad(request):
 
     return render(request,'ViewOnRoad/ViewOnRoad_storyonroad.html',{})
+
+def ViewOnRoad_detail(request,pk):
+    qs = get_object_or_404(UploadFile,pk=pk)
+
+    return render(request,'ViewOnRoad/ViewOnRoad_detail.html',{
+        "file" : qs,
+    })

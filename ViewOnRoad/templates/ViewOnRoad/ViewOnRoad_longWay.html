@@ -7,10 +7,10 @@
 {% block content %}
   {% for file in filelist %}
     <div class="file">
-        <h2><a style = "color : black;" href="파일 디테일 페이지">{{ file.title }}</a></h2>
+        <h2><a style = "color : black;" href="{% url 'ViewOnRoad_detail' file.pk %}">{{ file.title }}</a></h2>
         <br>
         <h3>{{ file.file.name }}</h3>
-        <video src = "{{ file.file.url }}">
+        <video src = "{{ file.file.url }}" style="width:500px; height:500px">
     </div>
    {% endfor %}
     
