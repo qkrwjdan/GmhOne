@@ -9,16 +9,16 @@ def ViewOnRoad_index(request):
     return render(request,'ViewOnRoad/ViewOnRoad_index.html',{})
 
 def ViewOnRoad_signup1(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join1.html',{})
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup1.html',{})
 
 def ViewOnRoad_signup2(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join2.html')
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup2.html')
 
 def ViewOnRoad_signup3(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join3.html')
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup3.html')
 
 def ViewOnRoad_signup4(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join4.html')
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup4.html')
 
 def ViewOnRoad_notice(request):
     return render(request,'ViewOnRoad/ViewOnRoad_notice.html',{})
@@ -55,3 +55,10 @@ def ViewOnRoad_detail(request,pk):
         "file" : qs,
     })
 
+def ViewOnRoad_profile(request):
+    if request.user.is_authenticated:
+        data = {'username':request.user.username, 'password':request.user.password,
+         'last_login':request.user.last_login}
+    else:
+        data = {'username':requset.user, 'is_authenticated':request.user.is_authenticated}
+    return render(request, 'ViewOnRoad_profile.html', context={'data':data})
