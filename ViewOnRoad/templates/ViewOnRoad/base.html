@@ -37,7 +37,7 @@
     {% if user.is_authenticated %}
       <span style="float : right">
         <a href="{% url 'logout' %}">로그아웃</a> |
-        <a href="">글쓰기</a> |
+        <a href="{% url 'ViewOnRoad_fileUpload' %}">글쓰기</a> |
         <a href="{% url 'ViewOnRoad_profile' %}">회원정보</a>
       </span>
     {% else %}
@@ -77,7 +77,7 @@
         </ul>
       </li>
 
-      <li><a href="">영상등록</a></li>
+      <li><a href="{% url 'ViewOnRoad_fileUpload' %}">영상등록</a></li>
 
       <li><a href="#">동반자</a>
         <ul>
