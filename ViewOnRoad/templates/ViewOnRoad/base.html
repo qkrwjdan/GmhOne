@@ -81,10 +81,13 @@
 
       <li><a href="#">동반자</a>
         <ul>
+        {% if user.is_authenticated %}
+        {% else %}
           <li><a href="{% url 'login' %}">로그인</a></li>
           <li><a href="{% url 'ViewOnRoad_signup1' %}">회원가입</a></li>
           <li><a href="#">아이디/비밀번호 찾기</a></li>
           <li>-------------------------&emsp;</li>
+        {% endif %}
           <li><a href="#">공개게시판</a></li>
           <li><a href="#">문의하기</a></li>
         </ul>
