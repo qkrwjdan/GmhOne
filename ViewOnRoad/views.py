@@ -61,4 +61,4 @@ def ViewOnRoad_profile(request):
          'last_login':request.user.last_login}
     else:
         data = {'username':requset.user, 'is_authenticated':request.user.is_authenticated}
-    return render(request, 'ViewOnRoad_profile.html', context={'data':data})
+    return render(request, 'ViewOnRoad/ViewOnRoad_profile.html', context={'data':data})
