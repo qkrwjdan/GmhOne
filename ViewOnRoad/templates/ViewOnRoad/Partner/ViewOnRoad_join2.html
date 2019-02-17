@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>join3</title>
+{% extends "ViewOnRoad/base.html" %}
+{% block stylelink %}
     <style>
       body{
         margin-top : 70px;
@@ -38,31 +35,26 @@
         padding-right : 60px;
         padding-left : 50px;
         border : solid;
+        border-bottom-width : 0px;
         margin-top : 50px;
         background-color : lightgray;
       }
       #listBox{
-        padding : 60px;
+        padding : 20px;
+        border : solid;
+        margin-bottom : 50px;
       }
       .box{
-        text-align : left;
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        margin : 5px;
-        border : solid 1px;
-      }
-      .textBox{
-        width : 80%;
-        background-color : lightgray;
-        margin : 2px;
+        height : 100px;
+        margin : 30px;
+        border : solid 1.5px;
       }
       input{
 
       }
     </style>
-  </head>
-
-  <body>
+{% endblock %}
+{% block content %}
     <div id="menuBox">
       <div class="menu">
         로그인
@@ -76,38 +68,19 @@
     </div>
     <div id="mainBox">
       <div id="number">
-        <span style="color : lightgray">1.회원선택 2.약관동의 </span>3.정보입력<span style="color : lightgray"> 4.가입완료</span>
+        <span style="color : lightgray">1.회원선택</span> 2.약관동의 <span style="color : lightgray">3.정보입력 4.가입완료</span>
       </div>
       <div id="agreeBox">
-        <span style="float : left">이용약관동의</span>
+        <span style="float : left">이용약관동의</span> <span style="float : right"><input type="checkbox">&ensp;전체동의</span>
       </div>
       <div id="listBox">
         <div class="box">
-          &emsp;ID <input type="text" class="textBox">
         </div>
         <div class="box">
-          &emsp;이름 <input type="text" class="textBox">
         </div>
         <div class="box">
-          &emsp;비밀번호 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;비밀번호확인 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;E-mail <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;전화번호 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;국적 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;번역가능언어 <input type="text" class="textBox">
         </div>
       </div>
-      <input type="button" value="다음">
+      <a href="{% url 'ViewOnRoad_signup3' %}"><input type="button" value="다음">
     </div>
-  </body>
-</html>
+{% endblock %}

@@ -4,7 +4,10 @@ from . import views
 
 urlpatterns = [
    url(r'^$',                   views.ViewOnRoad_index,      name='ViewOnRoad_index'),
-   url(r'^signup/$',            views.ViewOnRoad_signup,     name='ViewOnRoad_signup'),
+   url(r'^signup1/$',           views.ViewOnRoad_signup1,     name='ViewOnRoad_signup1'),
+   url(r'^signup2/$',           views.ViewOnRoad_signup2,     name='ViewOnRoad_signup2'),
+   url(r'^signup3/$',           views.ViewOnRoad_signup3,     name='ViewOnRoad_signup3'),
+   url(r'^signup4/$',           views.ViewOnRoad_signup4,     name='ViewOnRoad_signup4'),  
    url(r'^notice/$',            views.ViewOnRoad_notice,     name='ViewOnRoad_notice'),
    url(r'^fileuploadtest/$',    views.ViewOnRoad_fileUpload, name='ViewOnRoad_fileUpload'),
    url(r'^longway/$',           views.ViewOnRoad_longWay,    name='ViewOnRoad_longWay'),

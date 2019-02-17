@@ -8,12 +8,17 @@ from django.contrib.auth.decorators import login_required
 def ViewOnRoad_index(request):
     return render(request,'ViewOnRoad/ViewOnRoad_index.html',{})
 
-def ViewOnRoad_signup(request):
-    form = SignUpForm()
-    return render(request,'ViewOnRoad/ViewOnRoad_signup.html',{
-        'form':form,
-    })
+def ViewOnRoad_signup1(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join1.html',{})
 
+def ViewOnRoad_signup2(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join2.html')
+
+def ViewOnRoad_signup3(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join3.html')
+
+def ViewOnRoad_signup4(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_join4.html')
 
 def ViewOnRoad_notice(request):
     return render(request,'ViewOnRoad/ViewOnRoad_notice.html',{})
@@ -49,3 +54,4 @@ def ViewOnRoad_detail(request,pk):
     return render(request,'ViewOnRoad/ViewOnRoad_detail.html',{
         "file" : qs,
     })
+
