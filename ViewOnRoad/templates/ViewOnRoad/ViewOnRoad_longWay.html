@@ -10,7 +10,6 @@
         <h2><a style = "color : black;" href="{% url 'ViewOnRoad_detail' file.pk %}">{{ file.title }}</a></h2>
         <br>
         <h3>{{ file.file.name }}</h3>
-        <video src = "{{ file.file.url }}" style="width:500px; height:500px">
     </div>
    {% endfor %}
     
