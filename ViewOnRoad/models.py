@@ -17,3 +17,13 @@ class UploadFile(models.Model):
     
     def __str__(self):
         return self.title
+
+class longWay_uploadFile_model(models.Model):
+    # author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=50)
+    created_date = models.DateTimeField(default = timezone.now)
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.title
+
