@@ -48,6 +48,12 @@ def ViewOnRoad_storyonroad(request):
 
     return render(request,'ViewOnRoad/ViewOnRoad_storyonroad.html',{})
 
+def ViewOnRoad_roadview(request):
+    return render(request,'ViewOnRoad/ViewOnRoad_roadview.html',
+    {
+
+    })
+
 def ViewOnRoad_detail(request,pk):
     qs = get_object_or_404(UploadFile,pk=pk)
 

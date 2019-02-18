@@ -5,6 +5,19 @@
     <h1>file upload form</h1>
     <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
         {{ form.as_p }}
+        <label>
+            <input type='radio' name="selectmenu" value="1">
+            길위의 이야기
+        </label>
+        <label>
+            <input type="radio" name="selectmenu" value="2">
+            먼길가기
+        </label>
+        <label>
+            <input type="radio" name="selectmenu" value="3">
+            거리탐방
+        </label>
+        <br>
         <button type="submit" class="save btn btn-primary">Save</button>
     </form>
 {% endblock%}
