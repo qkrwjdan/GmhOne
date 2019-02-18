@@ -43,7 +43,7 @@
     {% else %}
       <span style="float : right">
         <a href="{% url 'login' %}">로그인</a> |
-        <a href="{% url 'ViewOnRoad_signup1' %}">회원가입</a> |
+        <a href="{% url 'ViewOnRoad_signup2' %}">회원가입</a> |
         <a href="#">아이디/비밀번호 찾기</a>&emsp;
       </span>
     {% endif %}
@@ -84,7 +84,7 @@
         {% if user.is_authenticated %}
         {% else %}
           <li><a href="{% url 'login' %}">로그인</a></li>
-          <li><a href="{% url 'ViewOnRoad_signup1' %}">회원가입</a></li>
+          <li><a href="{% url 'ViewOnRoad_signup2' %}">회원가입</a></li>
           <li><a href="#">아이디/비밀번호 찾기</a></li>
           <li>-------------------------&emsp;</li>
         {% endif %}
