@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+{% block stylelink %}
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'ViewOnRoad/index.css' %}">
-
-  {% block stylelink %}
-
-  {% endblock %}
+{% endblock %}
 
   <script>
 		function openMenubar_L_1() {
