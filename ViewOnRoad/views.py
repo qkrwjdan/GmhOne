@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import SignUpForm,UploadFileForm,longWay_UploadFileForm
+from .forms import storyonroad_uploadFileForm,roadview_uploadFileForm
 from .models import  UploadFile
 from django.contrib.auth.decorators import login_required
 
@@ -36,17 +37,41 @@ def ViewOnRoad_fileUpload(request):
         'form':form
     })
 
-def ViewOnRoad_fileuploadtest(request):
-    if request.method == 'POST':
-        form = longWay_UploadFileForm(request.POST,request.FILES)
-        if form.is_valid:
-            form.save()
-            return redirect("ViewOnRoad_longWay")
-    else:
-        form = longWay_UploadFileForm() 
-    return render(request,'ViewOnRoad/ViewOnRoad_fileUploadtest.html',{
-        'form':form
-    })
+def ViewOnRoad_fileuploadtest(request,pk):
+    if pk == "1":
+        if request.method == "POST":
+           form = storyonroad_uploadFileForm(request.POST,request.FILES)
+           if form.is_valid:
+                form.save()
+                return redirect("ViewOnRoad_storyonroad")
+        else:
+            form = storyonroad_uploadFileForm()
+        return render(request,"ViewOnRoad/ViewOnRoad_fileUploadtest.html",{
+            "form":form , "pk":pk
+        })
+    elif pk == "2":
+        if request.method == "POST":
+            form = longWay_UploadFileForm(request.POST,request.FILES)
+            if form.is_vaild:
+                form.save()
+                return redirect("ViewOnRoad_longWay")
+        else:
+            form = longWay_UploadFileForm()
+        return render(request,'ViewOnRoad/ViewOnRoad_fileUploadtest.html',{
+            "form":form , "pk":pk
+        })
+    elif pk == "3":
+        if request.method == "POST":
+            form = roadview_uploadFileForm(request.POST,request.FILES)
+            if form.is_valid:
+                form.save()
+                return redirect("ViewOnRoad_storyonroad")
+        else:
+            form = roadview_uploadFileForm() 
+        return render(request,"ViewOnRoad/ViewOnRoad_fileUploadtest.html",{
+            "form":form , "pk":pk
+        })
+
 
 def ViewOnRoad_longWay(request):
     qs =  UploadFile.objects.all()

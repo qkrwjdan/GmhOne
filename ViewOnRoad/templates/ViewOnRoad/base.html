@@ -71,12 +71,16 @@
           <li><a href="#">홈</a></li>
           <li><a href="#">최근 올라온 길</a></li>
           <li><a href="#">국내 유명한 길</a></li>
-
         </ul>
       </li>
 
-      <li><a href="{% url 'ViewOnRoad_fileUpload' %}">영상등록</a></li>
-
+      <li><a href="{% url 'ViewOnRoad_fileuploadtest' 1  %}">영상등록</a>
+        <ul>
+          <li><a href="{% url 'ViewOnRoad_fileuploadtest' 1  %}">길위의 이야기</a></li>
+          <li><a href="{% url 'ViewOnRoad_fileuploadtest' 2  %}">먼길가기</a></li>
+          <li><a href="{% url 'ViewOnRoad_fileuploadtest' 3  %}">거리탐방</a></li>
+        </ul>
+      </li>
       <li><a href="#">동반자</a>
         <ul>
         {% if user.is_authenticated %}

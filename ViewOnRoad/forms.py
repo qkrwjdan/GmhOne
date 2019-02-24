@@ -1,5 +1,6 @@
 from django import forms
 from .models import SignUp,longWay_uploadFile_model,UploadFile
+from . models import storyonroad_uploadFile_model,roadview_uploadFile_model
 
 class SignUpForm(forms.ModelForm):
     class Meta:
@@ -40,5 +41,14 @@ class longWay_UploadFileForm(forms.ModelForm):
     class Meta:
         model = longWay_uploadFile_model
         fields = ['title','file','text','detail_menu']
-        
 
+
+class roadview_uploadFileForm(forms.ModelForm):
+    class Meta:
+        model = roadview_uploadFile_model
+        fields = ['title','file','text']
+
+class storyonroad_uploadFileForm(forms.ModelForm):
+    class Meta:
+        model = storyonroad_uploadFile_model
+        fields = ['title','file','text']

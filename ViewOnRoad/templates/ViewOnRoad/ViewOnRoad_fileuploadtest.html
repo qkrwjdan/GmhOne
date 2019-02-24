@@ -2,11 +2,18 @@
 {% extends 'ViewOnRoad/base.html' %}
 
 {% block content %}
-    <h1>file upload form</h1>
+    {% if pk == "1" %}
+    <h1>story on road</h1>
+    {% elif pk == "2" %}
+    <h1>longway</h1>
+    {% elif pk == "3" %}
+    <h1>roadview</h1>
+    {% endif %}
     <form  method="POST" enctype="multipart/form-data"> 
         {% csrf_token %}
         {{ form.as_p }}
         <br>
         <button type="submit" class="save btn btn-primary">Save</button>
     </form>
+
 {% endblock%}
