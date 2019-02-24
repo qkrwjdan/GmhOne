@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import SignUpForm,UploadFileForm
+from .forms import SignUpForm,UploadFileForm,longWay_UploadFileForm
 from .models import  UploadFile
 from django.contrib.auth.decorators import login_required
 
@@ -33,6 +33,18 @@ def ViewOnRoad_fileUpload(request):
     else:
         form = UploadFileForm() 
     return render(request,'ViewOnRoad/ViewOnRoad_fileUpload.html',{
+        'form':form
+    })
+
+def ViewOnRoad_fileuploadtest(request):
+    if request.method == 'POST':
+        form = longWay_UploadFileForm(request.POST,request.FILES)
+        if form.is_valid:
+            form.save()
+            return redirect("ViewOnRoad_longWay")
+    else:
+        form = longWay_UploadFileForm() 
+    return render(request,'ViewOnRoad/ViewOnRoad_fileUploadtest.html',{
         'form':form
     })
 

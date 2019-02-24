@@ -15,6 +15,7 @@ urlpatterns = [
    url(r'^longway/(?P<pk>\d+)/$',views.ViewOnRoad_detail,    name="ViewOnRoad_detail"),
    url(r'^profile/$',            views.ViewOnRoad_profile,    name="ViewOnRoad_profile"),
    url(r'^roadview/$',          views.ViewOnRoad_roadview,    name="ViewOnRoad_roadview"),
+   url(r'^fileuploadtest/$', views.ViewOnRoad_fileuploadtest,name='ViewOnRoad_fileuploadtest'),
    
 ]
 
