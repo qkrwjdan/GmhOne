@@ -1,17 +1,6 @@
 from django import forms
-from .models import SignUp,longway_uploadFile_model,UploadFile
+from .models import longway_uploadFile_model
 from . models import storyonroad_uploadFile_model,roadview_uploadFile_model
-
-class SignUpForm(forms.ModelForm):
-    class Meta:
-        model = SignUp
-        fields = ['name','password']
-    
-
-class UploadFileForm(forms.ModelForm):
-    class Meta:
-        model = UploadFile
-        fields = ['title','file']
 
 class SelectMenuForm(forms.Form):
     MENU_1 = '길위의 이야기'

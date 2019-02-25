@@ -1,5 +1,4 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import SignUpForm
 from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm
 from .models import longway_uploadFile_model
 from django.contrib.auth.decorators import login_required
