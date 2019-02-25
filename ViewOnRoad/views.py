@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import SignUpForm,UploadFileForm
+from .forms import SignUpForm
 from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm
-from .models import  UploadFile,longway_uploadFile_model
+from .models import longway_uploadFile_model
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -25,19 +25,7 @@ def ViewOnRoad_notice(request):
     return render(request,'ViewOnRoad/ViewOnRoad_notice.html',{})
 
 @login_required
-def ViewOnRoad_fileUpload(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST,request.FILES)
-        if form.is_valid:
-            form.save()
-            return redirect("ViewOnRoad_longWay")
-    else:
-        form = UploadFileForm() 
-    return render(request,'ViewOnRoad/ViewOnRoad_fileUpload.html',{
-        'form':form
-    })
-
-def ViewOnRoad_fileuploadtest(request,pk):
+def ViewOnRoad_fileupload(request,pk):
     if pk == "1":
         if request.method == "POST":
            form = storyonroad_uploadFileForm(request.POST,request.FILES)
@@ -46,7 +34,7 @@ def ViewOnRoad_fileuploadtest(request,pk):
                 return redirect("ViewOnRoad_storyonroad")
         else:
             form = storyonroad_uploadFileForm()
-        return render(request,"ViewOnRoad/ViewOnRoad_fileUploadtest.html",{
+        return render(request,"ViewOnRoad/ViewOnRoad_fileUpload.html",{
             "form":form , "pk":pk
         })
     elif pk == "2":
@@ -57,7 +45,7 @@ def ViewOnRoad_fileuploadtest(request,pk):
                 return redirect("ViewOnRoad_longWay")
         else:
             form = longway_UploadFileForm()
-        return render(request,'ViewOnRoad/ViewOnRoad_fileUploadtest.html',{
+        return render(request,'ViewOnRoad/ViewOnRoad_fileUpload.html',{
             "form":form , "pk":pk
         })
     elif pk == "3":
@@ -68,7 +56,7 @@ def ViewOnRoad_fileuploadtest(request,pk):
                 return redirect("ViewOnRoad_roadview")
         else:
             form = roadview_uploadFileForm() 
-        return render(request,"ViewOnRoad/ViewOnRoad_fileUploadtest.html",{
+        return render(request,"ViewOnRoad/ViewOnRoad_fileUpload.html",{
             "form":form , "pk":pk
         })
 

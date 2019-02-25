@@ -9,13 +9,12 @@ urlpatterns = [
    url(r'^signup3/$',           views.ViewOnRoad_signup3,     name='ViewOnRoad_signup3'),
    url(r'^signup4/$',           views.ViewOnRoad_signup4,     name='ViewOnRoad_signup4'),  
    url(r'^notice/$',            views.ViewOnRoad_notice,     name='ViewOnRoad_notice'),
-   url(r'^fileupload/$',        views.ViewOnRoad_fileUpload, name='ViewOnRoad_fileUpload'),
+   url(r'^fileupload(?P<pk>[1-3])$',views.ViewOnRoad_fileupload, name='ViewOnRoad_fileupload'),
    url(r'^longway/$',           views.ViewOnRoad_longWay,    name='ViewOnRoad_longWay'),
    url(r'^storyonroad/$',       views.ViewOnRoad_storyonroad,name="ViewOnRoad_storyonroad"),
    url(r'^longway/(?P<pk>\d+)/$',views.ViewOnRoad_detail,    name="ViewOnRoad_detail"),
    url(r'^profile/$',            views.ViewOnRoad_profile,    name="ViewOnRoad_profile"),
    url(r'^roadview/$',          views.ViewOnRoad_roadview,    name="ViewOnRoad_roadview"),
-   url(r'^fileuploadtest(?P<pk>[1-3])$', views.ViewOnRoad_fileuploadtest,name='ViewOnRoad_fileuploadtest'),
    
 ]
 
