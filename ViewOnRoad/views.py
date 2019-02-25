@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import SignUpForm,UploadFileForm,longWay_UploadFileForm
-from .forms import storyonroad_uploadFileForm,roadview_uploadFileForm
-from .models import  UploadFile
+from .forms import SignUpForm,UploadFileForm
+from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm
+from .models import  UploadFile,longway_uploadFile_model
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -51,12 +51,12 @@ def ViewOnRoad_fileuploadtest(request,pk):
         })
     elif pk == "2":
         if request.method == "POST":
-            form = longWay_UploadFileForm(request.POST,request.FILES)
-            if form.is_vaild:
+            form = longway_UploadFileForm(request.POST,request.FILES)
+            if form.is_valid:
                 form.save()
                 return redirect("ViewOnRoad_longWay")
         else:
-            form = longWay_UploadFileForm()
+            form = longway_UploadFileForm()
         return render(request,'ViewOnRoad/ViewOnRoad_fileUploadtest.html',{
             "form":form , "pk":pk
         })
@@ -65,7 +65,7 @@ def ViewOnRoad_fileuploadtest(request,pk):
             form = roadview_uploadFileForm(request.POST,request.FILES)
             if form.is_valid:
                 form.save()
-                return redirect("ViewOnRoad_storyonroad")
+                return redirect("ViewOnRoad_roadview")
         else:
             form = roadview_uploadFileForm() 
         return render(request,"ViewOnRoad/ViewOnRoad_fileUploadtest.html",{
@@ -74,8 +74,8 @@ def ViewOnRoad_fileuploadtest(request,pk):
 
 
 def ViewOnRoad_longWay(request):
-    qs =  UploadFile.objects.all()
-    qs =  qs.order_by('title')
+    qs = longway_uploadFile_model.objects.all()
+    qs = qs.order_by('title')
     
     return render(request,'ViewOnRoad/ViewOnRoad_longWay.html',{
         'filelist': qs,
@@ -92,7 +92,7 @@ def ViewOnRoad_roadview(request):
     })
 
 def ViewOnRoad_detail(request,pk):
-    qs = get_object_or_404(UploadFile,pk=pk)
+    qs = get_object_or_404(longway_uploadFile_model,pk=pk)
 
     return render(request,'ViewOnRoad/ViewOnRoad_detail.html',{
         "file" : qs,

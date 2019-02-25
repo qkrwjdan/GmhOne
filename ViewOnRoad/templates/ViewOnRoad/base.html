@@ -21,6 +21,12 @@
     function closeMenubar_L_2() {
 			document.getElementById('menubar_L_2').style.width = '0';
 		}
+    function openMenubar_L_3(){
+      document.getElementById('menubar_L_3').style.width = '250px';
+    }
+    function closeMenubar_L_3(){
+      document.getElementById('menubar_L_3').style.width = '0';
+    }
 	</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +76,7 @@
         <ul>
           <li><a href="#">홈</a></li>
           <li><a href="#">최근 올라온 길</a></li>
-          <li><a href="#">국내 유명한 길</a></li>
+          <li><a href="#" onmouseover = 'openMenubar_L_3()'>국내 유명한 길</a></li>
         </ul>
       </li>
 
@@ -123,6 +129,17 @@
     <a href="#">오세아니아</a>
     <a href="#">북아메리카</a>
     <a href="#">남아메리카</a>
+  </div>
+  
+  <div id="menubar_L_3" class="menubar_L">
+    <a href="#" class="closeMenubar_L" onclick='closeMenubar_L_3()'>x</a>
+    <a href="#">서울</a>
+    <a href="#">경기도</a>
+    <a href="#">강원도</a>
+    <a href="#">충청도</a>
+    <a href="#">전라도</a>
+    <a href="#">경상도</a>
+    <a href="#">제주도</a>
   </div>
 
 </body>
