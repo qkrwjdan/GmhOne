@@ -14,7 +14,6 @@ urlpatterns = [
    url(r'^longway/$',           views.ViewOnRoad_longWay,    name='ViewOnRoad_longWay'),
    url(r'^storyonroad/$',       views.ViewOnRoad_storyonroad,name="ViewOnRoad_storyonroad"),
    url(r'^longway/(?P<pk>\d+)/$',views.ViewOnRoad_detail,    name="ViewOnRoad_detail"),
-   url(r'^profile/$',            views.ViewOnRoad_profile,    name="ViewOnRoad_profile"),
    url(r'^roadview/$',          views.ViewOnRoad_roadview,    name="ViewOnRoad_roadview"),
-   
+   url(r'^profile/$',          views.ViewOnRoad_profile,    name="ViewOnRoad_profile"),
 ]

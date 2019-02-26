@@ -17,7 +17,18 @@ def ViewOnRoad_signup2(request):
     return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup2.html')
 
 def ViewOnRoad_signup4(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup4.html')
+    if request.user.is_authenticated:
+        data = {'ID':request.user.username, '최근 로그인':request.user.last_login}
+    else:
+        data = {'ID':requset.user, '로그인 여부':request.user.is_authenticated}
+    return render(request, 'ViewOnRoad/Partner/ViewOnRoad_signup4.html', context={'data':data})
+
+def ViewOnRoad_profile(request):
+    if request.user.is_authenticated:
+        data = {'ID':request.user.username, '최근 로그인':request.user.last_login}
+    else:
+        data = {'ID':requset.user, '로그인 여부':request.user.is_authenticated}
+    return render(request, 'ViewOnRoad/ViewOnRoad_profile.html', context={'data':data})
 
 def ViewOnRoad_notice(request):
     return render(request,'ViewOnRoad/ViewOnRoad_notice.html',{})
@@ -84,21 +95,13 @@ def ViewOnRoad_detail(request,pk):
         "file" : qs,
     })
 
-def ViewOnRoad_profile(request):
-    if request.user.is_authenticated:
-        data = {'username':request.user.username, 'password':request.user.password,
-         'last_login':request.user.last_login}
-    else:
-        data = {'username':requset.user, 'is_authenticated':request.user.is_authenticated}
-    return render(request, 'ViewOnRoad/ViewOnRoad_profile.html', context={'data':data})
-
 def UserCreateView(request):
     if request.method == 'POST':
         f = UserCreationForm(request.POST)
         if f.is_valid():
             f.save()
             messages.success(request, 'Account created successfully')
-            return redirect('register')
+            return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup4.html')
  
     else:
         f = UserCreationForm()

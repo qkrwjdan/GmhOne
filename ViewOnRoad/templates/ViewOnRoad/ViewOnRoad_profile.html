@@ -1,9 +1,21 @@
 {% extends 'ViewOnRoad/base.html' %}
 
+{% block stylelink%}
+  <link rel="stylesheet" href="/static/ViewOnRoad/signup4.css">
+{% endblock %}
+
 {% block content %}
-    <ul>
-    {% for key,value in data.items %}
-        {{ key }} : {{ value }}<br>
-    {% endfor %}
-    </ul>
+    <div id="mainBox">
+      <div id="completeBox">
+        회원님의 정보는
+        <br><br>
+        <span style="background-color : lightgray">
+          {% for key,value in data.items %}
+            {{ key }} : {{ value }}<br>
+          {% endfor %}
+        </span>
+        <br><br>
+        입니다.
+      </div>
+    </div>
 {% endblock%}
