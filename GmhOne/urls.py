@@ -6,6 +6,7 @@ from django.contrib.auth.views import login, logout
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ViewOnRoad/',include('ViewOnRoad.urls')),

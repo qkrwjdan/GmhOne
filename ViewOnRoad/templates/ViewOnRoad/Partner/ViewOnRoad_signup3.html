@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content%}
+  <form method="post">
+    {% csrf_token %}
     <div id="menuBox">
       <div class="menu">
         로그인
@@ -24,22 +26,14 @@
         <span style="float : left">이용약관동의</span>
       </div>
       <div id="listBox">
-        <div class="box">
-          &emsp;ID <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;비밀번호 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;비밀번호확인 <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;E-mail <input type="text" class="textBox">
-        </div>
-        <div class="box">
-          &emsp;전화번호 <input type="text" class="textBox">
-        </div>
+        <table>
+        {{ form.as_table }}
+          <tr>
+            <td></td>
+          </tr>
+        </table>
       </div>
-      <a href="{% url 'ViewOnRoad_signup4' %}"><input type="button" value="다음"></a>
+      <a href="{% url 'ViewOnRoad_signup4' %}"><input type="submit" name="submit" value="다음" /></a>
     </div>
+  </form>
 {% endblock %}

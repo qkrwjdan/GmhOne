@@ -5,6 +5,7 @@
         <h2>{{ file.title }}</h2>
         <hr>
         <h3>{{ file.file.name }}</h3>
+        {{ file.text }} 
         <video src = "{{ file.file.url }}" style="width:800px; height:800px" autoplay loop controls>
     </div>
 {% endblock %}

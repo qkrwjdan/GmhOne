@@ -1,37 +1,39 @@
 from django.db import models
 from django.utils import timezone
 
-
-class SignUp(models.Model):
-    name = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
-    created_date = models.DateTimeField(default = timezone.now)
-
-    def __str__(self):
-        return self.name
-        
-
-class UploadFile(models.Model):
-    title = models.CharField(max_length=50)
-    file = models.FileField(upload_to='uploads')
-    created_date = models.DateTimeField(default = timezone.now)
-    
-    def __str__(self):
-        return self.title
-
-
 class storyonroad_uploadFile_model(models.Model):
     # author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default='settings.MEDIA_ROOT/uploads/GMH_logo.png')
     text = models.TextField()
+    MENU_1 = "MYROAD"
+    MENU_2 = "RESTAURANT"
+    MENU_3 = "HISTORY"
+    MENU_4 = "FESTIVAL"
+    MENU_5 = "HARDROAD"
+    MENU_6 = "ADVENTURE"
+    MENU_7 = "REST"
+    MENU_CHOICES = (
+        (MENU_1,"나의길이야기"),
+        (MENU_2,"맛집으로 가는길"),
+        (MENU_3,"역사 속으로 가는길"),
+        (MENU_4,"축제가는 길"),
+        (MENU_5,"고행의 길"),
+        (MENU_6,"탐험의 길"),
+        (MENU_7,"휴식의 길")
+    )
+    detail_menu = models.CharField(
+        max_length = 10,
+        choices = MENU_CHOICES,
+        default = MENU_1,
+    )
     
     def __str__(self):
         return self.title
 
 
-class longWay_uploadFile_model(models.Model):
+class longway_uploadFile_model(models.Model):
     # author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
@@ -69,7 +71,28 @@ class roadview_uploadFile_model(models.Model):
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default='settings.MEDIA_ROOT/uploads/GMH_logo.png')
     text = models.TextField()
+    MENU_1 = "서울"
+    MENU_2 = "경기도"
+    MENU_3 = "충청도"
+    MENU_4 = "전라도"
+    MENU_5 = "강원도"
+    MENU_6 = "경상도"
+    MENU_7 = "제주도"
 
+    MENU_CHOICES = (
+        (MENU_1,MENU_1),
+        (MENU_2,MENU_2),
+        (MENU_3,MENU_3),
+        (MENU_4,MENU_4),
+        (MENU_5,MENU_5),
+        (MENU_6,MENU_6),
+        (MENU_7,MENU_7),
+    )
+    detail_menu = models.CharField(
+        max_length = 5,
+        choices = MENU_CHOICES,
+        default = MENU_1,
+    )
     
     def __str__(self):
         return self.title

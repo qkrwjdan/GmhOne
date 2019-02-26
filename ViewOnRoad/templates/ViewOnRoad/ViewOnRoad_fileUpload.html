@@ -2,15 +2,18 @@
 {% extends 'ViewOnRoad/base.html' %}
 
 {% block content %}
-    <h1>file upload form</h1>
-    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {% if pk == "1" %}
+    <h1>story on road</h1>
+    {% elif pk == "2" %}
+    <h1>longway</h1>
+    {% elif pk == "3" %}
+    <h1>roadview</h1>
+    {% endif %}
+    <form  method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <select name = "selectmenu" id = "se">
-            <option value = "1">길위의 이야기</option>
-            <option value = "2">먼길가기</option>
-            <option value = "3">거리탐방</option>
-        </select>
         <button type="submit" class="save btn btn-primary">Save</button>
     </form>
+
 {% endblock%}
