@@ -31,7 +31,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ViewOnRoad</title>
+  {% block title%}
+  {% endblock%}
 </head>
 <body>
   <p>
@@ -96,8 +97,8 @@
           <li><a href="#">아이디/비밀번호 찾기</a></li>
           <li>-------------------------&emsp;</li>
         {% endif %}
-          <li><a href="#">공개게시판</a></li>
-          <li><a href="#">문의하기</a></li>
+          <li><a href="{% url 'ViewOnRoad_questions' %}">공개게시판</a></li>
+          <li><a href="{% url 'ViewOnRoad_ask' %}">문의하기</a></li>
         </ul>
       </li>
    </ul>

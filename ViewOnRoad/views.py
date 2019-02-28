@@ -23,6 +23,14 @@ def ViewOnRoad_signup4(request):
         data = {'ID':requset.user, '로그인 여부':request.user.is_authenticated}
     return render(request, 'ViewOnRoad/Partner/ViewOnRoad_signup4.html', context={'data':data})
 
+@login_required
+def ViewOnRoad_ask(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_ask.html',{})
+
+def ViewOnRoad_questions(request):
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_questions.html',{})
+
+@login_required
 def ViewOnRoad_profile(request):
     if request.user.is_authenticated:
         data = {'ID':request.user.username, '최근 로그인':request.user.last_login}

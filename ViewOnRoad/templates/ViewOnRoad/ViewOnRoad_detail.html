@@ -1,5 +1,9 @@
 {% extends 'ViewOnRoad/base.html' %}
 
+{% block title%}
+<title>{{file.title}}</title>
+{% endblock%}
+
 {% block content %}
     <div class="file">
         <h2>{{ file.title }}</h2>
