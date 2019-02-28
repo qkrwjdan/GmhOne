@@ -28,6 +28,7 @@ class storyonroad_uploadFile_model(models.Model):
         choices = MENU_CHOICES,
         default = MENU_1,
     )
+    views = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
@@ -60,6 +61,7 @@ class longway_uploadFile_model(models.Model):
         choices = MENU_CHOICES,
         default = MENU_1,
     )
+    views = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
@@ -93,6 +95,7 @@ class roadview_uploadFile_model(models.Model):
         choices = MENU_CHOICES,
         default = MENU_1,
     )
+    views = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title

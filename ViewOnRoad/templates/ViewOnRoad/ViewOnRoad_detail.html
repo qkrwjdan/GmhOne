@@ -1,5 +1,7 @@
 {% extends 'ViewOnRoad/base.html' %}
 
+
+
 {% block title%}
 <title>{{file.title}}</title>
 {% endblock%}
@@ -10,6 +12,7 @@
         <hr>
         <h3>{{ file.file.name }}</h3>
         {{ file.text }} 
-        <video src = "{{ file.file.url }}" style="width:800px; height:800px" autoplay loop controls>
+        조회수 : {{ file.views }}
+        {% comment %} <video src = "{{ file.file.url }}" style="width:800px; height:800px" autoplay loop controls> {% endcomment %}
     </div>
 {% endblock %}

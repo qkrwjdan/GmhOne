@@ -11,7 +11,7 @@
 {% block content %}
   {% for file in filelist %}
     <div class="file">
-        <h2><a style = "color : black;" href="{% url 'ViewOnRoad_detail' file.pk %}">{{ file.title }}</a></h2>
+        <h2><a style = "color : black;" href="{% url 'ViewOnRoad_longway_detail' file.pk %}">{{ file.title }}</a></h2>
         <br>
         <h3>{{ file.file.name }}</h3>
     </div>

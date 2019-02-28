@@ -96,11 +96,12 @@ def ViewOnRoad_roadview(request):
 
     })
 
-def ViewOnRoad_detail(request,pk):
+def ViewOnRoad_longway_detail(request,pk):
     qs = get_object_or_404(longway_uploadFile_model,pk=pk)
-
+    qs.views += 1
+    qs.save()
     return render(request,'ViewOnRoad/ViewOnRoad_detail.html',{
-        "file" : qs,
+        "file" : qs, 
     })
 
 def UserCreateView(request):
