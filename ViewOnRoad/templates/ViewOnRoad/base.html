@@ -88,7 +88,7 @@
           <li><a href="{% url 'ViewOnRoad_fileupload' 3  %}">거리탐방</a></li>
         </ul>
       </li>
-      <li><a href="#">동반자</a>
+      <li><a href=" {% url 'ViewOnRoad_questions' %}">동반자</a>
         <ul>
         {% if user.is_authenticated %}
         {% else %}

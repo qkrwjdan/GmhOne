@@ -52,10 +52,10 @@
   <body>
     <div id="menuBox">
       <div class="menu" id="now">
-        <strong>공개게시판</strong>
+        <strong><a href="{% url 'ViewOnRoad_questions' %}">공개게시판</a></strong>
       </div>
       <div class="menu">
-        문의하기
+        <a href= "{% url 'ViewOnRoad_ask' %}">문의하기</a>
       </div>
     </div>
 
