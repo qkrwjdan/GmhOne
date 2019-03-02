@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class storyonroad_uploadFile_model(models.Model):
-    # author = models.ForeignKey('auth.User')
+    # author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default='settings.MEDIA_ROOT/uploads/GMH_logo.png')
@@ -99,5 +99,13 @@ class roadview_uploadFile_model(models.Model):
     
     def __str__(self):
         return self.title
+
+class question_model(models.Model):
+    # author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=50)
+    created_date = models.DateTimeField(default = timezone.now)
+    file = models.FileField(upload_to='uploads/',default = 'settings.MEDIA_ROOT/uploads/GMH_logo.png')
+    text = models.TextField()
+
 
 

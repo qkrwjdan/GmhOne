@@ -1,14 +1,22 @@
-{% extends "ViewOnRoad/base.html" %}
-
-{% block stylelink %}
-
-{% endblock stylelink %}
+{% extends 'ViewOnRoad/base.html' %}
 
 {% block title%}
 <title>거리탐방</title>
 {% endblock%}
 
+{% block stylelist %}
+  <link rel="stylesheet" href="/static/ViewOnRoad/longway.css">
+{% endblock %}
+
 {% block content %}
+  {% for file in filelist %}
+    <div class="file">
+        <h2><a style = "color : black;" href="{% url 'ViewOnRoad_roadview_detail' file.pk %}">{{ file.title }}</a></h2>
+        <br>
+        <h3>{{ file.file.name }}</h3>
+    </div>
+   {% endfor %}
+    
+<a style = "color : red;" href="{% url 'ViewOnRoad_fileupload' 3 %}">파일 업로드하기</a><br>
 
-{% endblock content %}
-
+{% endblock%}
