@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class storyonroad_uploadFile_model(models.Model):
-    # author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default='settings.MEDIA_ROOT/uploads/GMH_logo.png')
@@ -35,7 +35,7 @@ class storyonroad_uploadFile_model(models.Model):
 
 
 class longway_uploadFile_model(models.Model):
-    # author = models.ForeignKey('auth.User')
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     text = models.TextField()
@@ -68,7 +68,7 @@ class longway_uploadFile_model(models.Model):
 
 
 class roadview_uploadFile_model(models.Model):
-    # author = models.ForeignKey('auth.User')
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default='settings.MEDIA_ROOT/uploads/GMH_logo.png')
@@ -101,7 +101,7 @@ class roadview_uploadFile_model(models.Model):
         return self.title
 
 class question_model(models.Model):
-    # author = models.ForeignKey('auth.User')
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(default = timezone.now)
     file = models.FileField(upload_to='uploads/',default = 'settings.MEDIA_ROOT/uploads/GMH_logo.png')

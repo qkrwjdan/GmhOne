@@ -11,6 +11,7 @@
         <h2>{{ file.title }}</h2>
         <hr>
         <h3>{{ file.file.name }}</h3>
+        <h5>작성자 : {{file.user}}</h5>
         {{ file.text }} 
         조회수 : {{ file.views }}
         <video src = "{{ file.file.url }}" style="width:800px; height:800px" autoplay loop controls>

@@ -28,6 +28,8 @@ def ViewOnRoad_ask(request):
     if request.method == "POST":
         form = question_Form(request.POST,request.FILES)
         if form.is_valid:
+            form = form.save(commit == False)
+            form.user = request.user
             form.save()
             return redirect("ViewOnRoad_questions")
     else:
@@ -67,9 +69,9 @@ def ViewOnRoad_fileupload(request,pk):
         if request.method == "POST":
            form = storyonroad_uploadFileForm(request.POST,request.FILES)
            if form.is_valid:
-                post = form.save()
-                # post.author = request.user
-                # post.save()
+                post = form.save(commit = False)
+                post.user = request.user
+                post.save()
                 return redirect("ViewOnRoad_storyonroad")
         else:
             form = storyonroad_uploadFileForm()
@@ -80,9 +82,9 @@ def ViewOnRoad_fileupload(request,pk):
         if request.method == "POST":
             form = longway_UploadFileForm(request.POST,request.FILES)
             if form.is_valid:
-                post = form.save()
-                # post.author = request.user
-                # post.save()
+                post = form.save(commit = False)
+                post.user = request.user
+                post.save()
                 return redirect("ViewOnRoad_longWay")
         else:
             form = longway_UploadFileForm()
@@ -93,9 +95,9 @@ def ViewOnRoad_fileupload(request,pk):
         if request.method == "POST":
             form = roadview_uploadFileForm(request.POST,request.FILES)
             if form.is_valid:
-                post = form.save()
-                # post.author = request.user
-                # post.save()
+                post = form.save(commit = False)
+                post.user = request.user
+                post.save()
                 return redirect("ViewOnRoad_roadview")
         else:
             form = roadview_uploadFileForm() 
