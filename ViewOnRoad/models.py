@@ -107,5 +107,9 @@ class question_model(models.Model):
     file = models.FileField(upload_to='uploads/',default = 'settings.MEDIA_ROOT/uploads/GMH_logo.png')
     text = models.TextField()
 
+    def __str__(self):
+        return self.title
+
+
 
 

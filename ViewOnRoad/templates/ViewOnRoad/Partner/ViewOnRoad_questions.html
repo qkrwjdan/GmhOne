@@ -74,17 +74,19 @@
       </div>
 
 <!-- 여기서부터 끝에 표시한 부분까지 게시판에 올릴 글 예시 -->
+    {% for post in posts%}
       <div class="gridbox">
         <div>
-          홈페이지 오픈 안내
+          <a href = "{% url 'ViewOnRoad_question_detail' post.id%}">{{post.title}}</a>
         </div>
         <div>
-          supervisor
+          author
         </div>
         <div>
-          2019-02-27
+          {{post.created_date}}
         </div>
       </div>
+    {% endfor %}
       <div class="gridbox">
         <div>
           동영상 업로드 방법
@@ -121,17 +123,6 @@
       <div class="gridbox">
         <div>
           1차 이벤트 안내
-        </div>
-        <div>
-          supervisor
-        </div>
-        <div>
-          2019-02-27
-        </div>
-      </div>
-      <div class="gridbox">
-        <div>
-          S
         </div>
         <div>
           supervisor

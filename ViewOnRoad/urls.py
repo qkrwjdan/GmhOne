@@ -19,6 +19,7 @@ urlpatterns = [
    url(r'^roadview/(?P<pk>\d+)/$',         views.ViewOnRoad_roadview_detail,      name="ViewOnRoad_roadview_detail"),
    url(r'^profile/$',                      views.ViewOnRoad_profile,              name="ViewOnRoad_profile"),
    url(r'^questions/$',                    views.ViewOnRoad_questions,            name="ViewOnRoad_questions"),
+   url(r'^questions/(?P<pk>\d+)/$',        views.ViewOnRoad_question_detail,     name="ViewOnRoad_question_detail"),
    url(r'^ask/$',                          views.ViewOnRoad_ask,                  name="ViewOnRoad_ask" ),
 ]
     

@@ -1,6 +1,7 @@
 from django import forms
 from .models import longway_uploadFile_model
-from . models import storyonroad_uploadFile_model,roadview_uploadFile_model
+from .models import storyonroad_uploadFile_model,roadview_uploadFile_model
+from .models import question_model
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -44,10 +45,10 @@ class roadview_uploadFileForm(forms.ModelForm):
         model = roadview_uploadFile_model
         fields = ['title','file','text','detail_menu']
 
-class storyonroad_uploadFileForm(forms.ModelForm):
+class question_Form(forms.ModelForm):
     class Meta:
-        model = storyonroad_uploadFile_model
-        fields = ['title','file','text','detail_menu']
+        model = question_model
+        fields = ['title','file','text']
 
 class UserCreationForm(forms.Form):
     username = forms.CharField(label='Enter Username', min_length=4, max_length=150)

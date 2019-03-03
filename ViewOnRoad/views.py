@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm
-from .models import longway_uploadFile_model,storyonroad_uploadFile_model,roadview_uploadFile_model
+from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm,question_Form
+from .models import longway_uploadFile_model,storyonroad_uploadFile_model,roadview_uploadFile_model,question_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -25,10 +25,30 @@ def ViewOnRoad_signup4(request):
 
 @login_required
 def ViewOnRoad_ask(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_ask.html',{})
+    if request.method == "POST":
+        form = question_Form(request.POST,request.FILES)
+        if form.is_valid:
+            form.save()
+            return redirect("ViewOnRoad_questions")
+    else:
+        form = question_Form()
+    return render(request,"ViewOnRoad/Partner/ViewOnRoad_ask.html",{
+        "form" : form
+    })
 
 def ViewOnRoad_questions(request):
-    return render(request,'ViewOnRoad/Partner/ViewOnRoad_questions.html',{})
+    qs = question_model.objects.all()
+    qs = qs.order_by("created_date")
+
+    return render(request,'ViewOnRoad/Partner/ViewOnRoad_questions.html',{
+        "posts" : qs,
+    })
+
+def ViewOnRoad_question_detail(request,pk):
+    post = get_object_or_404(question_model,pk=pk)
+    return render(request,"ViewOnRoad/Partner/ViewOnRoad_question_detail.html",{
+        "file" : post
+        })
 
 @login_required
 def ViewOnRoad_profile(request):
@@ -48,8 +68,8 @@ def ViewOnRoad_fileupload(request,pk):
            form = storyonroad_uploadFileForm(request.POST,request.FILES)
            if form.is_valid:
                 post = form.save()
-                post.author = request.user
-                post.save()
+                # post.author = request.user
+                # post.save()
                 return redirect("ViewOnRoad_storyonroad")
         else:
             form = storyonroad_uploadFileForm()
@@ -61,8 +81,8 @@ def ViewOnRoad_fileupload(request,pk):
             form = longway_UploadFileForm(request.POST,request.FILES)
             if form.is_valid:
                 post = form.save()
-                post.author = request.user
-                post.save()
+                # post.author = request.user
+                # post.save()
                 return redirect("ViewOnRoad_longWay")
         else:
             form = longway_UploadFileForm()
@@ -74,8 +94,8 @@ def ViewOnRoad_fileupload(request,pk):
             form = roadview_uploadFileForm(request.POST,request.FILES)
             if form.is_valid:
                 post = form.save()
-                post.author = request.user
-                post.save()
+                # post.author = request.user
+                # post.save()
                 return redirect("ViewOnRoad_roadview")
         else:
             form = roadview_uploadFileForm() 
