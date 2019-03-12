@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import longway_UploadFileForm,storyonroad_uploadFileForm,roadview_uploadFileForm,question_Form
+from .forms import CustomUserCreationForm
 from .models import longway_uploadFile_model,storyonroad_uploadFile_model,roadview_uploadFile_model,question_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -28,7 +29,7 @@ def ViewOnRoad_ask(request):
     if request.method == "POST":
         form = question_Form(request.POST,request.FILES)
         if form.is_valid:
-            form = form.save(commit == False)
+            form = form.save(commit = False)
             form.user = request.user
             form.save()
             return redirect("ViewOnRoad_questions")
@@ -109,6 +110,7 @@ def ViewOnRoad_fileupload(request,pk):
 def ViewOnRoad_longWay(request):
     qs = longway_uploadFile_model.objects.all()
     qs = qs.order_by('title')
+    order_by_view = qs.order_by('view')
     
     return render(request,'ViewOnRoad/ViewOnRoad_longWay.html',{
         'filelist': qs,
@@ -155,13 +157,13 @@ def ViewOnRoad_roadview_detail(request,pk):
 
 def UserCreateView(request):
     if request.method == 'POST':
-        f = UserCreationForm(request.POST)
+        f = CustomUserCreationForm(request.POST)
         if f.is_valid():
             f.save()
             messages.success(request, 'Account created successfully')
             return render(request,'ViewOnRoad/Partner/ViewOnRoad_signup4.html')
  
     else:
-        f = UserCreationForm()
+        f = CustomUserCreationForm()
  
     return render(request, 'ViewOnRoad/Partner/ViewOnRoad_signup3.html', {'form': f})

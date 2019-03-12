@@ -1,22 +1,178 @@
 {% extends 'ViewOnRoad/base.html' %}
 
 {% block title%}
-<title>먼길가기</title>
+<title>Longway Home</title>
 {% endblock%}
 
-{% block stylelist %}
-  <link rel="stylesheet" href="/static/ViewOnRoad/longway.css">
+{% block stylelink %}
+  <style>
+  body{
+margin : 50px;
+}
+.Tmain{
+padding : 10px;
+}
+#FirstGrid{
+display: grid;
+grid-template-columns : 1fr 3fr;
+}
+#FirstVideo{
+height : 200px;
+width : 300px;
+border: solid 1px;
+margin : 10px;
+}
+#content{
+border: solid 1px;
+margin : 10px;
+}
+.AddButton{
+float : right;
+border : 0px;
+margin : 5px;
+}
+.SecondGrid{
+display: grid;
+grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
+text-align : center;
+margin : 10px;
+}
+.SecondVideo{
+height : 100px;
+width : 150px;
+border : solid 1px;
+margin : 5px;
+}
+  </style>
 {% endblock %}
 
 {% block content %}
+
+  <ul>
+      <div class="Tmain">
+        <li>추천 VOD</li>
+        <br>
+        <div id="FirstGrid">
+          <div id="FirstVideo">
+            비디오삽입
+          </div>
+          <div id="content">
+            내용설명
+          </div>
+        </div>
+      </div>
+
+    <hr>
+
+      <div class="Tmain">
+        <li>최근 올라온 길</li>
+        <br>
+        <form>
+          <input class="AddButton"type="button" value="더보기">
+        </form>
+        <div class="SecondGrid">
+          <div class="SecondVideo">
+            동영상
+          </div>
+          <div class="SecondVideo">
+            동영상
+          </div>
+          <div class="SecondVideo">
+            동영상
+          </div>
+          <div class="SecondVideo">
+            동영상
+          </div>
+          <div class="SecondVideo">
+            동영상
+          </div>
+        </div>
+      </div>
+
+    <hr>
+
+      <div class="Tmain">
+        <li>주제가 있는 길</li>
+        <br>
+        <ul>
+          <li>나의 길이야기</li>
+          <form>
+            <input class="AddButton"type="button" value="더보기">
+          </form>
+          <div class="SecondGrid">
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+          </div>
+
+          <li>맛집으로 가는길</li>
+          <form>
+            <input class="AddButton"type="button" value="더보기">
+          </form>
+          <div class="SecondGrid">
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+          </div>
+
+          <li>역사속으로 가는길</li>
+          <form>
+            <input class="AddButton"type="button" value="더보기">
+          </form>
+          <div class="SecondGrid">
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+            <div class="SecondVideo">
+              동영상
+            </div>
+          </div>
+        </ul>
+      </div>
+    </ul>
+    
+<a style = "color : red;" href="{% url 'ViewOnRoad_fileupload' 2 %}">파일 업로드하기</a><br>
+
+{% endblock%}
+
+{% comment %} 
   {% for file in filelist %}
     <div class="file">
         <h2><a style = "color : black;" href="{% url 'ViewOnRoad_longway_detail' file.pk %}">{{ file.title }}</a></h2>
         <br>
         <h3>{{ file.file.name }}</h3>
     </div>
-   {% endfor %}
-    
-<a style = "color : red;" href="{% url 'ViewOnRoad_fileupload' 2 %}">파일 업로드하기</a><br>
-
-{% endblock%}
+{% endcomment %}
