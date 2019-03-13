@@ -1,7 +1,41 @@
 {% extends "ViewOnRoad/base.html" %}
 
 {% block stylelink%}
-  <link rel="stylesheet" href="/static/ViewOnRoad/signup4.css">
+<style>
+#menuBox{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align : center;
+  font-size : 0.75em;
+  margin : 200px;
+  margin-top : 50px;
+  margin-right : 700px;
+  margin-bottom : 0px;
+}
+.menu{
+  border : solid;
+  border-bottom-width : 0px;
+}
+#now{
+  background-color : lightgray;
+}
+#mainBox{
+  padding : 20px;
+  border : solid;
+  margin : 200px;
+  margin-top : 0px;
+  text-align : center;
+}
+#number{
+  text-align : right;
+}
+#completeBox{
+  text-align : center;
+  border : solid;
+  padding : 40px;
+  margin : 70px;
+}
+</style>
 {% endblock %}
 
 {% block title%}
