@@ -6,9 +6,6 @@
 
 {% block stylelink %}
   <style>
-  body{
-margin : 50px;
-}
 .Tmain{
 padding : 10px;
 }
@@ -163,12 +160,12 @@ margin : 5px;
         </ul>
       </div>
     </ul>
-    
+
 <a style = "color : red;" href="{% url 'ViewOnRoad_fileupload' 2 %}">파일 업로드하기</a><br>
 
 {% endblock%}
 
-{% comment %} 
+{% comment %}
   {% for file in filelist %}
     <div class="file">
         <h2><a style = "color : black;" href="{% url 'ViewOnRoad_longway_detail' file.pk %}">{{ file.title }}</a></h2>
