@@ -109,11 +109,12 @@ def ViewOnRoad_fileupload(request,pk):
 
 def ViewOnRoad_longWay(request):
     qs = longway_uploadFile_model.objects.all()
+    order_by_views = longway_uploadFile_model.objects.order_by('-views')
+    referenced_video = order_by_views[0]
     qs = qs.order_by('title')
-    order_by_view = qs.order_by('view')
     
     return render(request,'ViewOnRoad/ViewOnRoad_longWay.html',{
-        'filelist': qs,
+        'filelist': qs, "referenced_video" : referenced_video ,
     })
 
 def ViewOnRoad_longway_detail(request,pk):
@@ -125,10 +126,13 @@ def ViewOnRoad_longway_detail(request,pk):
     })
 def ViewOnRoad_storyonroad(request):
     qs = storyonroad_uploadFile_model.objects.all()
+    order_by_views = storyonroad_uploadFile_model.objects.order_by('-views')
+    referenced_video = order_by_views[0]
     qs = qs.order_by('title')
 
+    
     return render(request,'ViewOnRoad/ViewOnRoad_storyonroad.html',{
-        'filelist' : qs,
+        'filelist': qs, "referenced_video" : referenced_video ,
     })
 
 def ViewOnRoad_storyonroad_detail(request,pk):
@@ -140,11 +144,15 @@ def ViewOnRoad_storyonroad_detail(request,pk):
     })
 def ViewOnRoad_roadview(request):
     qs = roadview_uploadFile_model.objects.all()
+    order_by_views = roadview_uploadFile_model.objects.order_by('-views')
+    referenced_video = order_by_views[0]
     qs = qs.order_by('title')
 
     return render(request,'ViewOnRoad/ViewOnRoad_roadview.html',{
-        'filelist' : qs,
+        'filelist': qs, "referenced_video" : referenced_video ,
     })
+
+
 def ViewOnRoad_roadview_detail(request,pk):
     qs = get_object_or_404(roadview_uploadFile_model,pk=pk)
     qs.views +=1
