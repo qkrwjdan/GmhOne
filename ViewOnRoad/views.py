@@ -56,7 +56,7 @@ def ViewOnRoad_question_detail(request,pk):
 @login_required
 def ViewOnRoad_profile(request):
     if request.user.is_authenticated:
-        data = {'ID':request.user.username, '최근 로그인':request.user.last_login}
+        data = {'ID':request.user.username}
     else:
         data = {'ID':requset.user, '로그인 여부':request.user.is_authenticated}
     return render(request, 'ViewOnRoad/ViewOnRoad_profile.html', context={'data':data})
@@ -175,3 +175,6 @@ def UserCreateView(request):
         f = CustomUserCreationForm()
  
     return render(request, 'ViewOnRoad/Partner/ViewOnRoad_signup3.html', {'form': f})
+
+def ViewOnRoad_storyonroad_last(request):
+    return render(request,'ViewOnRoad/ViewOnRoad_last.html',{})

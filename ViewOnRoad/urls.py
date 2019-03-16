@@ -21,5 +21,7 @@ urlpatterns = [
    url(r'^questions/$',                    views.ViewOnRoad_questions,            name="ViewOnRoad_questions"),
    url(r'^questions/(?P<pk>\d+)/$',        views.ViewOnRoad_question_detail,     name="ViewOnRoad_question_detail"),
    url(r'^ask/$',                          views.ViewOnRoad_ask,                  name="ViewOnRoad_ask" ),
+   url(r'^storyonroad/last/$',             views.ViewOnRoad_storyonroad_last,                 name="ViewOnRoad_storyonroad_last"),
+
 ]
     
