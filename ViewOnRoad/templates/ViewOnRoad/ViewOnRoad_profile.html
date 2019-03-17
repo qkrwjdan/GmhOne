@@ -1,0 +1,128 @@
+{% extends 'ViewOnRoad/base.html' %}
+
+{% block stylelink%}
+  <link rel="stylesheet" href="/static/ViewOnRoad/signup4.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <style>
+    .profile{
+      display:block;
+      position:relative;
+      width:400px;
+      height:50%;
+      margin-top:30px;
+      border:3px solid gray;
+      border-radius:7px;
+      margin-left:auto;
+      margin-right:auto;
+      padding-top : 10px;
+      padding-bottom : 50px;
+      padding-left:50px;
+      padding-right:50px;
+      font-family:'Quicksand', sans-serif;
+      font-weight:1000;
+      font-size:30px;
+      color:#210B61;
+    }
+    .profile_label{
+        margin-top:0px;
+        margin-bottom:-10px;
+        color:#2E2E2E;
+      }
+
+    .upload_title{
+      border : 1.5px solid gray;
+      border-radius : 7px;
+      width : 65%;
+      display: block;
+      margin-top:10px;
+      margin-left:auto;
+      margin-right:auto;
+      padding-top:8px;
+      padding-bottom:8px;
+      overflow:hidden;
+    }
+
+    .nickname{
+      border : 1.5px solid gray;
+      border-radius : 7px;
+      width : 65%;
+      display: block;
+      margin-top:10px;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      text-align:center;
+      color:black;
+    }
+
+    .logout{
+      border : 1.5px solid gray;
+      border-radius : 7px;
+      width : 65%;
+      display: block;
+      margin-top:10px;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      text-align:center;
+      color:black;
+      background-color: #0B0B3B;
+      -webkit-transition: background-color 0.2s;
+      transition: background-color 0.2s;
+      color:white;
+    }
+    .logout:hover{
+      background-color:#045FB4;
+    }
+    .logout:active{
+      background-color:#585858;
+    }
+    .profile_edit{
+      border : 1.5px solid gray;
+      border-radius : 7px;
+      width : 65%;
+      display: block;
+      margin-top:10px;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:10px;
+      padding-top:8px;
+      padding-bottom:8px;
+      text-align:center;
+      color:black;
+      background-color: #0B0B3B;
+      -webkit-transition: background-color 0.2s;
+      transition: background-color 0.2s;
+      color:white;
+    }
+    .profile_edit:hover{
+      background-color:#045FB4;
+    }
+    .profile_edit:active{
+      background-color:#585858;
+    }
+  </style>
+{% endblock %}
+
+{% block title%}
+<title>프로필</title>
+{% endblock%}
+
+{% block content %}
+  <div class = "profile">
+    <p class = "profiel_label">
+      My Profile
+    </p>
+    <p class = "nickname">  
+      {% for key,value in data.items %}
+        {{ key }} : {{ value }}<br>
+      {% endfor %} 
+    </p>
+    <a href=" {% url 'logout' %} " style="text-decoration : none;"><button class = "logout">로그아웃</button></a>
+    <button class = "profile_edit">정보 수정</button>
+  </div>
+{% endblock%}

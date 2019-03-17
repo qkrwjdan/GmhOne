@@ -1,0 +1,32 @@
+{% extends 'ViewOnRoad/base.html' %}
+
+{% block stylelink %}
+  <link rel="stylesheet" href="/static/ViewOnRoad/login.css">
+{% endblock %}
+
+{% block content %}
+  {% if form.errors %}
+      <p>이름과 비밀번호가 일치하지 않습니다. 다시 시도해주세요.</p>
+  {% endif %}
+
+  <div id="loginBody">
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+
+      아이디 : <input name="username" type="text" /><br />
+      비밀번호 : <input name="password" type="password" /><br />
+      <input class="loginButton" type="submit" value="로그인"><br>
+      <input type="hidden" name="next" value="{{ next }}" />
+
+      <input id="checkLogin" type="checkbox" value="">
+      <label id="checkLogin">로그인 유지</label>
+    </form>
+
+    <hr>
+    <div id="grid">
+      <span class="rightLine">아이디찾기</span> <!—아이디찾기.html로 이동—>
+      <span class="rightLine">비밀번호찾기</span> <!—비밀번호찾기.html로 이동—>
+      <span>회원가입</span> <!—회원가입.html로 이동—>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,123 @@
+.member{
+  float:right;
+  font-size : 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.member a{
+  text-decoration : none;
+  color : black
+}
+.logo{
+  margin-left : 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.menubar{
+  background-color:#0B0B3B;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size : 18px;
+  border-radius: 7px;
+  padding-top:1px;
+  padding-bottom:1px;
+  margin-bottom:19px;
+}
+.menubar li{
+  display : inline-block;
+  z-index:1;
+  padding-left: 20px;
+}
+.menubar li ul {
+  background: #0B0B3B;
+  display:none;
+  position:absolute;
+  width:200px;
+  border-radius: 7px;
+}
+.menubar li:hover ul {
+  display:block;
+}
+.menubar ul li ul li{
+  display:block;
+  padding-top:10px;
+  padding-bottom: 10px;
+  color:#DBA901;
+}
+.menubar ul li a{
+  text-decoration: none;
+  color : white;
+}
+.menubar ul li a:hover{
+  color:#DBA901;
+}
+.thumbnail{
+  display:block;
+  text-align: center;
+}
+.thumbnail li{
+  display:inline;
+  margin:auto;
+}
+.thumbnail li img{
+  margin-left: -6px;
+  margin-top : -19px;
+  background-size: contain;
+  width:33%;
+  height:33%;
+}
+.thumbnail li img:hover{
+  opacity:0.7;
+}
+
+/* 사이드바 스타일 */
+.menubar_L {
+  height:100%;
+  width: 0;
+  position: fixed;
+  z-index:1;
+  top: 0;
+  left: 0;
+  background-color:#0B0B3B;
+  overflow-x: hidden;
+  transition:0.5s ease-in-out;
+  padding-top: 60px;
+  font-family: 'Noto Sans KR', sans-serif;
+  display:inline-block;
+}
+.menubar_L a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  margin-top:12px;
+  transition: 0.2s ease-in-out;
+}
+.menubar_L a:hover, .offcanvas a:focus {
+  color: #DBA901;
+}
+.closeMenubar_L {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+.openMenubar_L:hover {
+  color:rgb(0,154,200);
+  transition:0.5s ease-in-out;
+}
+.openMenubar_L {
+  font-size: 25px;
+  cursor:pointer;
+  transition:0.5s ease-in-out;
+}
+.openMenubar_L > i {
+  font-size: 30px;
+}
+@media screen and (max-height:450px) {
+  .menubar_L{
+    padding-top:15px;
+  }
+  .menubar_L a {
+    font-size: 18px;
+  }
+}

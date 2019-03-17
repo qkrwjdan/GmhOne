@@ -1,0 +1,200 @@
+
+{% extends 'ViewOnRoad/base.html' %}
+
+
+{% block title%}
+<title>파일 업로드</title>
+{% endblock%}
+
+{% block stylelink %}
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<style>
+.upload{
+    display:block;
+    width:65%;
+    height:50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    text-align:center;
+    border:3px solid gray;
+    border-radius:7px;
+    padding-top : 20px;
+    padding-bottom : 20px;
+    font-family:'Quicksand', sans-serif;
+    font-weight:800;
+}
+
+.filebox label , #id_file{
+    margin-top:15px;
+    display: inline-block;
+    padding: .5em .75em;
+    color: #fff;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #0B0B3B;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: .25em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;font-family:'Quicksand', sans-serif;
+}
+
+.filebox label:hover ,#id_file:hover{
+    background-color: #045FB4;
+}
+
+.filebox label:active ,#id_file:active{
+    background-color: #585858;
+}
+
+.filebox input[type="file"] ,#id_file  {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.upload_label{
+    margin-top:0px;
+    margin-bottom:-10px;
+    font-size : 30px;
+    font-family:'Quicksand', sans-serif;
+    font-weight:1000;
+    color:#2E2E2E;
+}
+
+.upload_title{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:8px;
+    padding-bottom:8px;
+    overflow:hidden;
+}
+#id_title{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:8px;
+    padding-bottom:8px;
+    overflow:hidden;
+}
+
+.upload_title{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    padding-top:8px;
+    padding-bottom:8px;
+    text-align:center;
+}
+
+#id_title{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    padding-top:8px;
+    padding-bottom:8px;
+    text-align:center;
+}
+
+.upload_contents{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    height:auto;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:8px;
+    padding-bottom:8px;
+    word-break:break-all;
+    text-align:center;
+}
+
+#id_text{
+    border : 1.5px solid gray;
+    border-radius : 7px;
+    width : 65%;
+    height:auto;
+    display: block;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:8px;
+    padding-bottom:8px;
+    word-break:break-all;
+    text-align:center;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class = "upload">
+    <p class = "upload_label">
+        {% if pk == "1" %}
+        story on road Viewing
+        {% elif pk == "2" %}
+        longway Viewing
+        {% elif pk == "3" %}
+        roadview Viewing
+        {% endif %}
+    </p>
+        <form  method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" class="save btn btn-primary">Save</button>
+    </form>
+  </div>
+
+{% endblock%}
+
+
+{% comment %} 
+아직 완성 안됨!!
+<body>
+  <div class = "upload">
+    <!--정무의 django 파일 업로드-->
+    <p class = "upload_label">
+      Viewing
+    </p>
+    <br>
+    <br>
+
+    Title
+    <input class = "upload_title" type="text" maxlength = "15">
+    Contents
+    <textarea  class = "upload_contents" name="fragment" id="code-input" cols="30" rows="10"> </textarea>
+
+    <div class="filebox">
+      <label for="ex_file">Upload</label>
+    </div>
+  </div>
+</body>
+{% endcomment %}

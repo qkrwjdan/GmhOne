@@ -1,0 +1,147 @@
+{% load staticfiles%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% block stylelink %}
+{% endblock %}
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'ViewOnRoad/index.css' %}">
+  <script>
+		function openMenubar_L_1() {
+			document.getElementById('menubar_L_1').style.width = '250px';
+		}
+    function openMenubar_L_2(){
+      document.getElementById('menubar_L_2').style.width = '250px';
+    }
+		function closeMenubar_L_1() {
+			document.getElementById('menubar_L_1').style.width = '0';
+		}
+    function closeMenubar_L_2() {
+			document.getElementById('menubar_L_2').style.width = '0';
+		}
+    function openMenubar_L_3(){
+      document.getElementById('menubar_L_3').style.width = '250px';
+    }
+    function closeMenubar_L_3(){
+      document.getElementById('menubar_L_3').style.width = '0';
+    }
+	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% block title%}
+  {% endblock%}
+</head>
+<body>
+  <p>
+    <a href = "{% url 'ViewOnRoad_index' %}"><img src="{% static 'ViewOnRoad/GMH_logo.png' %}" alt=""  width = 60px height = 50px></a>
+  </p>
+  <span>
+    {% if user.is_authenticated %}
+      <span style="float : right">
+        <a href="{% url 'logout' %}">로그아웃</a> |
+        <a href="{% url 'ViewOnRoad_fileupload' 1 %}">글쓰기</a> |
+        <a href="{% url 'ViewOnRoad_profile' %}">회원정보</a>
+      </span>
+    {% else %}
+      <span style="float : right">
+        <a href="{% url 'login' %}">로그인</a> |
+        <a href="{% url 'ViewOnRoad_signup2' %}">회원가입</a> |
+        <a href="#">아이디/비밀번호 찾기</a>&emsp;
+      </span>
+    {% endif %}
+  </span>
+  <br>
+  <div class="menubar">
+   <ul>
+      <li><a href="{% url 'ViewOnRoad_notice' %}">회사소개</a></li>
+      <li><a href="{% url 'ViewOnRoad_storyonroad' %}">길 위의 이야기</a>
+         <ul>
+           <li><a href="{% url 'ViewOnRoad_storyonroad' %}">홈</a></li>
+           <li><a href="#">최근 올라온 길</a></li>
+           <li><a href="#" onmouseover = 'openMenubar_L_1()'>주제가 있는 길</a></li>
+         </ul>
+      </li>
+
+      <li><a href="{% url 'ViewOnRoad_longWay' %}">먼 길 가기</a>
+        <ul>
+          <li><a href="{% url 'ViewOnRoad_longWay' %}">홈</a></li>
+          <li><a href="#">최근 올라온 길</a></li>
+          <li><a href="#" onmouseover = 'openMenubar_L_2()' >대륙별 인기있는 길</a></li>
+        </ul>
+      </li>
+
+      <li><a href="{% url 'ViewOnRoad_roadview'%}">거리 탐방</a>
+        <ul>
+          <li><a href="{% url 'ViewOnRoad_roadview'%}">홈</a></li>
+          <li><a href="#">최근 올라온 길</a></li>
+          <li><a href="#" onmouseover = 'openMenubar_L_3()'>국내 유명한 길</a></li>
+        </ul>
+      </li>
+
+      <li><a href="{% url 'ViewOnRoad_fileupload' 1  %}">영상등록</a>
+        <ul>
+          <li><a href="{% url 'ViewOnRoad_fileupload' 1  %}">길위의 이야기</a></li>
+          <li><a href="{% url 'ViewOnRoad_fileupload' 2  %}">먼길가기</a></li>
+          <li><a href="{% url 'ViewOnRoad_fileupload' 3  %}">거리탐방</a></li>
+        </ul>
+      </li>
+      <li><a href=" {% url 'ViewOnRoad_questions' %}">동반자</a>
+        <ul>
+        {% if user.is_authenticated %}
+        {% else %}
+          <li><a href="{% url 'login' %}">로그인</a></li>
+          <li><a href="{% url 'ViewOnRoad_signup2' %}">회원가입</a></li>
+          <li><a href="#">아이디/비밀번호 찾기</a></li>
+          <li>-------------------------&emsp;</li>
+        {% endif %}
+          <li><a href="{% url 'ViewOnRoad_questions' %}">공개게시판</a></li>
+          <li><a href="{% url 'ViewOnRoad_ask' %}">문의하기</a></li>
+        </ul>
+      </li>
+   </ul>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+<div id="menubar_L_1" class="menubar_L">
+		<a href="#" class="closeMenubar_L" onclick='closeMenubar_L_1()'>x</a>
+		<a href="#">나의 길 이야기</a>
+		<a href="#">맛집으로 가는 길</a>
+		<a href="#">역사 속으로 가는 길</a>
+		<a href="#">축제 가는 길</a>
+		<a href="#">고행의 길</a>
+		<a href="#">탐험의 길</a>
+		<a href="#">휴식 여행의 길</a>
+		<a href="#">박물관 가는 길</a>
+	</div>
+
+  <div id="menubar_L_2" class="menubar_L">
+    <a href="#" class="closeMenubar_L" onclick='closeMenubar_L_2()'>x</a>
+    <a href="#">아시아</a>
+    <a href="#">중국</a>
+    <a href="#">태국</a>
+    <a href="#">중동</a>
+    <a href="#">유럽</a>
+    <a href="#">아프리카</a>
+    <a href="#">오세아니아</a>
+    <a href="#">북아메리카</a>
+    <a href="#">남아메리카</a>
+  </div>
+  
+  <div id="menubar_L_3" class="menubar_L">
+    <a href="#" class="closeMenubar_L" onclick='closeMenubar_L_3()'>x</a>
+    <a href="#">서울</a>
+    <a href="#">경기도</a>
+    <a href="#">강원도</a>
+    <a href="#">충청도</a>
+    <a href="#">전라도</a>
+    <a href="#">경상도</a>
+    <a href="#">제주도</a>
+  </div>
+
+</body>
+</html>

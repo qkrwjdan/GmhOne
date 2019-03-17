@@ -1,0 +1,30 @@
+#loginBody{
+  text-align: center;  
+}
+form{
+  margin: 3%;
+}
+.loginButton{
+  width: 300px;
+  height: 30px;
+  margin: 2%;
+  background-color:#0B0B3B;
+  color: white;
+  font-size : 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+#id_name, #id_password{
+  width: 300px;
+  height: 30px;
+  margin: 2%;
+}
+#checkLogin{
+  font-size: 10px;
+}
+#grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.rightLine{
+  border-right: 1px solid gray;
+}

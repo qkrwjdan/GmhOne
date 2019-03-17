@@ -1,0 +1,87 @@
+{% extends "ViewOnRoad/base.html" %}
+
+{% block stylelink %}
+<style>
+  #menuBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align : center;
+    font-size : 0.75em;
+    margin : 200px;
+    margin-top : 50px;
+    margin-right : 700px;
+    margin-bottom : 0px;
+  }
+  .menu{
+    border : solid;
+    border-bottom-width : 0px;
+  }
+  #now{
+    background-color : lightgray;
+  }
+  #mainBox{
+    padding : 20px;
+    border : solid;
+    margin : 200px;
+    margin-top : 0px;
+    text-align : center;
+  }
+  #number{
+    text-align : right;
+  }
+  #agreeBox{
+    height : 20px;
+    padding-right : 60px;
+    padding-left : 50px;
+    border : solid;
+    border-bottom-width : 0px;
+    margin-top : 50px;
+    background-color : lightgray;
+  }
+  #listBox{
+    padding : 20px;
+    border : solid;
+    margin-bottom : 50px;
+  }
+  .box{
+    height : 100px;
+    margin : 30px;
+    border : solid 1.5px;
+  }
+  </style>
+{% endblock %}
+
+{% block title%}
+<title>회원가입</title>
+{% endblock%}
+
+{% block content %}
+    <div id="menuBox">
+      <div class="menu">
+        로그인
+      </div>
+      <div class="menu" id="now">
+        <strong>회원가입</strong>
+      </div>
+      <div class="menu">
+        아이디/비밀번호 찾기
+      </div>
+    </div>
+    <div id="mainBox">
+      <div id="number">
+        <span style="color : lightgray">1.회원선택</span> 2.약관동의 <span style="color : lightgray">3.정보입력 4.가입완료</span>
+      </div>
+      <div id="agreeBox">
+        <span style="float : left">이용약관동의</span> <span style="float : right"><input type="checkbox">&ensp;전체동의</span>
+      </div>
+      <div id="listBox">
+        <div class="box">
+        </div>
+        <div class="box">
+        </div>
+        <div class="box">
+        </div>
+      </div>
+      <a href="{% url 'register' %}"><input type="button" value="다음">
+    </div>
+{% endblock %}
