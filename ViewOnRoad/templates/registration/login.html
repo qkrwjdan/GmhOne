@@ -10,9 +10,9 @@
     <form method="POST" action="{% url 'login' %}">
       {% csrf_token %}
 
-      <input name="username" id = "id_name" style = "border-radius : 6px" type="text" placeholder="아이디"/><br />
-      <input name="password" id = "id_password" style = "border-radius : 6px" type="password" placeholder="비밀번호"/><br />
-      <button class="loginButton" style = "border-radius : 6px"  type="submit" value="로그인">로그인</button><br>
+      <input name="username" id = "id_name" type="text" placeholder="아이디"/><br />
+      <input name="password" id = "id_password"  type="password" placeholder="비밀번호"/><br />
+      <button class="loginButton"   type="submit" value="로그인">로그인</button><br>
       <input type="hidden" name="next" value="{{ next }}" />
 
       <input id="checkLogin" type="checkbox" value="">
