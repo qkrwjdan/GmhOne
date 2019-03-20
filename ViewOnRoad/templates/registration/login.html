@@ -5,28 +5,29 @@
 {% endblock %}
 
 {% block content %}
-  {% if form.errors %}
-      <p>이름과 비밀번호가 일치하지 않습니다. 다시 시도해주세요.</p>
-  {% endif %}
 
   <div id="loginBody">
     <form method="POST" action="{% url 'login' %}">
       {% csrf_token %}
 
-      아이디 : <input name="username" type="text" /><br />
-      비밀번호 : <input name="password" type="password" /><br />
-      <input class="loginButton" type="submit" value="로그인"><br>
+      <input name="username" id = "id_name" style = "border-radius : 6px" type="text" placeholder="아이디"/><br />
+      <input name="password" id = "id_password" style = "border-radius : 6px" type="password" placeholder="비밀번호"/><br />
+      <button class="loginButton" style = "border-radius : 6px"  type="submit" value="로그인">로그인</button><br>
       <input type="hidden" name="next" value="{{ next }}" />
 
       <input id="checkLogin" type="checkbox" value="">
       <label id="checkLogin">로그인 유지</label>
     </form>
+    {% if form.errors %}
+    <p style="font-size:10px">아이디와 비밀번호가 일치하지 않습니다. 다시 시도해주세요.</p>
+    {% endif %}
 
     <hr>
     <div id="grid">
-      <span class="rightLine">아이디찾기</span> <!—아이디찾기.html로 이동—>
-      <span class="rightLine">비밀번호찾기</span> <!—비밀번호찾기.html로 이동—>
-      <span>회원가입</span> <!—회원가입.html로 이동—>
+      <a href="" class="rightLine" style = "text-decoration:none" >아이디찾기</a>
+      <a href="" class="rightLine" style = "text-decoration:none">비밀번호찾기</a>
+      <a href="" class="rightLine" style = "text-decoration:none">회원가입</a>
     </div>
   </div>
+
 {% endblock %}
